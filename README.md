@@ -1,7 +1,28 @@
-MQ_supporting_ATS — Shared-Buffer Multi-Queue Switch Architecture Based on ATS
 
-Project Overview
-- ZYNQ/Vivado design with 4 RGMII ports and an internal `64-bit` data path.
-- Core logic implements ATS (Asynchronous Traffic Shaping): per-frame eligible time is computed via a `token bucket` and `group eligibility time`, then scheduled with strict priority under a shared buffer.
-- The codebase covers MAC adaptation for RX/TX, input arbitration, Ethernet parsing and MAC address lookup, shared buffer and queue management, frame eligibility calculation, and egress shaping.
+# Multiple Queues (MQ) for Asynchronous Traffic Shaping in TSN Switches
 
+This repository contains the FPGA implementation and evaluation framework of
+the Multiple Queues (MQ) architecture proposed in our paper:
+
+> **Designing Multiple Queues to Support Asynchronous Traffic Shaping in Shared-Buffer TSN Switches**
+> (submitted to / IEEE TCAD)
+>
+>
+> ## Multiple Queues (MQ) Architecture
+>
+> MQ implements ATS shaped queues as metadata-driven logical queues on top of a
+> shared-buffer switch architecture.
+>
+> Key design features:
+>
+> - Virtual queues implemented using head/tail pointers
+> - Shared Metadata Memory storing linked-list nodes
+> - Centralized Multiple Queues Manager controlling enqueue/dequeue
+> - No per-queue payload FIFOs
+> - Compatible with IEEE 802.1Qcr ATS semantics
+
+
+
+## License
+
+This project is released under the MIT License (or BSD-3-Clause).
